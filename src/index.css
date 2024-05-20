@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.user-form,
+.user-list {
+  margin-top: 20px;
+}
+
+.user-form h2,
+.user-list h2 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  background: #5cb85c;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background: #4cae4c;
+}
+
+.user-list .search-bar {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.user-list .search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+.user-list .search-bar button {
+  padding: 8px 12px;
+  border: none;
+  background: #5bc0de;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+.user-list .search-bar button:hover {
+  background: #31b0d5;
+}
+
+.user-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-list table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+}
+
+.user-list th,
+.user-list td {
+  padding: 10px;
+  text-align: left;
+}
+
+.user-list th {
+  background: #f9f9f9;
+}
+
+.user-list td button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.user-list td button:first-child {
+  background: #f0ad4e;
+  color: white;
+}
+
+.user-list td button:first-child:hover {
+  background: #ec971f;
+}
+
+.user-list td button:last-child {
+  background: #d9534f;
+  color: white;
+}
+
+.user-list td button:last-child:hover {
+  background: #c9302c;
+}
