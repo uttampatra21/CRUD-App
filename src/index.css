@@ -57,9 +57,6 @@ h1 {
   border-radius: 4px;
 }
 
-.flex {
-}
-
 .form button {
   padding: 10px;
   width: 100%;
@@ -97,6 +94,11 @@ h1 {
 
 .user-list .search-bar button:hover {
   background: #31b0d5;
+}
+
+.table {
+  height: 250px;
+  overflow-y: scroll;
 }
 
 .user-list table {

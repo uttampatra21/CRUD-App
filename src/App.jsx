@@ -1,22 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser, showUsers } from "./redux/userDetailsSlice";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const allData = useSelector((state) => state.app.users);
+  const loading = useSelector((state) => state.app.loading);
   const [users, setUsers] = useState({});
 
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
   };
 
-  const handelSubmit = () => {
-    alert(0);
+  // Create Action
+
+  const handelSubmit = (e) => {
+    console.log("...users", users);
+    e.preventDefault();
+    dispatch(createUser(users));
   };
+
+  // READ Action
+  useEffect(() => {
+    dispatch(showUsers());
+  }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <img
+          src="https://loading.io/assets/mod/spinner/spinner/lg.gif"
+          alt=""
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="x-app">
-      <h1>CRUD App</h1>
       <div className="user-form">
-        <h2>Add / Edit User</h2>
-
         <form onSubmit={handelSubmit} className="form">
           <div className="flex">
             <label>Name:</label>
@@ -56,25 +78,32 @@ const App = () => {
           />
           <button type="button">Search</button>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>john.doe@example.com</td>
-              <td className="btns">
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allData.map((data, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{data.name}</td>
+                    <td>{data.email}</td>
+                    <td className="btns">
+                      <button type="button">Edit</button>
+                      <button type="button">Delete</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
