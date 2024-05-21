@@ -1,10 +1,23 @@
+import { useState } from "react";
+
 const App = () => {
+  const [users, setUsers] = useState({});
+
+  const getUserData = (e) => {
+    setUsers({ ...users, [e.target.name]: e.target.value });
+  };
+
+  const handelSubmit = () => {
+    alert(0);
+  };
+
   return (
     <div className="x-app">
       <h1>CRUD App</h1>
       <div className="user-form">
         <h2>Add / Edit User</h2>
-        <div className="form">
+
+        <form onSubmit={handelSubmit} className="form">
           <div className="flex">
             <label>Name:</label>
             <input
@@ -13,6 +26,7 @@ const App = () => {
               name="name"
               placeholder="Enter name"
               required
+              onChange={getUserData}
             />
           </div>
 
@@ -24,11 +38,12 @@ const App = () => {
               name="email"
               placeholder="Enter email"
               required
+              onChange={getUserData}
             />
           </div>
 
           <button type="submit">Save User</button>
-        </div>
+        </form>
       </div>
       <div className="user-list">
         <h2>User List</h2>
