@@ -42,6 +42,7 @@ const App = () => {
     e.preventDefault();
   };
 
+  
   if (loading) {
     return (
       <div>
@@ -52,6 +53,7 @@ const App = () => {
       </div>
     );
   }
+
 
   return (
     <>
